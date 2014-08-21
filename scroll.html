@@ -1,0 +1,94 @@
+<html>
+
+<head>
+
+	<title>Scroll</title>
+
+	<meta http-equiv="content-type" content="text/html; charset=">
+
+	<script type="text/javascript" src="js/jquery-1.js"></script>
+	<script type="text/javascript" src="js/scrollsync.js"></script>
+	<script type="text/javascript" src="js/dragscrollable.js"></script>
+
+	<script type="text/javascript">
+		$(function() {
+		
+		// Set header viewport to follow viewport scroll on x axis
+		$('#viewport, #header_viewport').
+			scrollsync({targetSelector: '#viewport', axis : 'x'});
+		
+		// Set drag scroll on first descendant of class dragger on both selected elements
+		$('#viewport, #inner').
+			dragscrollable({dragSelector: '.dragger:first', acceptPropagatedEvent: false});
+		 
+		});
+
+	</script>
+
+	<style>
+	
+		* {	margin:0; padding:0; border:none; }
+		
+		#viewport {
+			position: relative;	/* to enable further positioned divs inside content area */
+			background: lightgray;
+			width:100%;
+			height:100%;
+			overflow: auto;
+		}
+		
+		#base {
+			position:relative;
+			width: 2000px; height: 1200px;
+			overflow: hidden;
+		}
+
+		.dragger { /* Class used by jQuery */ }
+
+		div#base div {
+            padding: 1rem;
+            background-color: black;
+            color: white;
+            display: inline-block;
+            position: absolute;
+        }
+
+        /* Placing divs at all 4 corners of the map */
+		div#base div:nth-child(1) { top: 8rem; left: 8rem; }
+		div#base div:nth-child(2) { top: 8rem; right: 8rem; }
+		div#base div:nth-child(3) { bottom: 8rem; left: 8rem; }
+		div#base div:nth-child(4) { bottom: 8rem; right: 8rem; }
+
+		body {
+				/* Prevent selection of text within the drag-and-scroll area */
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+		}
+
+	</style>
+</head>
+
+<body>
+	<div id="viewport">
+		<div id="base" class="dragger">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			</div>
+		</div>
+	</div> <!-- viewport -->
+	
+</body></html>
+
+</head>
+<body>
+
+
+
+</body>
+</html>
